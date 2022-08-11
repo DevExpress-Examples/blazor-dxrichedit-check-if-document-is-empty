@@ -1,0 +1,41 @@
+﻿@page "/"
+@using System.IO;
+
+<DxButton Click="@CheckIsEmpty" RenderStyle=@style Text=@text />
+<DxRichEdit @ref="richEdit"  DocumentContent="@documentContent" CssClass="w-100 ch-320" />
+
+@code {
+    DxRichEdit richEdit;
+    byte[] documentContent;
+    ButtonRenderStyle style = ButtonRenderStyle.Info;
+    bool isEmpty = false;
+    string text = "Is the open document empty?";
+
+    protected override async Task OnInitializedAsync() {
+        documentContent = await File.ReadAllBytesAsync(Path.Combine("Data", "AlbertEinstein.docx"));
+        await base.OnInitializedAsync();
+    }
+    
+    async void CheckIsEmpty(MouseEventArgs args) {
+        isEmpty = await IsEmpty();
+        text = isEmpty ? "The open document is empty." : "The document is not empty.";
+        style = isEmpty ? ButtonRenderStyle.Danger : ButtonRenderStyle.Success;
+        StateHasChanged();
+    }
+
+    async ValueTask<bool> IsEmpty() {
+        var sections = await richEdit.DocumentAPI.Sections.GetAllAsync();
+        if (sections.Count() != 1)
+            return false;
+        var section = sections[0];
+        if (section.Interval.Length > 1)
+            return false;
+        foreach (HeaderFooterType headerFooterType in (HeaderFooterType[])Enum.GetValues(typeof(HeaderFooterType))) {
+            if (await section.GetHeaderAsync(headerFooterType) != null)
+                return false;
+            if (await section.GetFooterAsync(headerFooterType) != null)
+                return false;
+        }
+        return true;
+    }
+}
