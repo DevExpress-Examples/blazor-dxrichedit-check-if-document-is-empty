@@ -4,6 +4,9 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 # Rich Edit for Blazor - How to check whether the document is empty
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/523621286/)**
+<!-- run online end -->
 
 This example demonstrates how you can check whether a document opened in the [Rich Text Editor](https://docs.devexpress.com/Blazor/401891/rich-text-editor) is empty.
 
