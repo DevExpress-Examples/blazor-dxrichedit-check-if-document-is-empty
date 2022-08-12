@@ -4,7 +4,7 @@
 <!-- default badges end -->
 # Rich Edit for Blazor - How to check whether the document is empty
 
-This example demonstrates how you can check whether a document opened in the [Rich Text Editor](https://docs.devexpress.com/Blazor/401891/rich-text-editor) is empty.
+This example demonstrates how to check whether a document opened in the [Rich Text Editor](https://docs.devexpress.com/Blazor/401891/rich-text-editor) is empty.
 
 ![Blazor DxRichEdit check whether the document is empty](/images/document-is-empty.png)
 
