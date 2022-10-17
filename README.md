@@ -25,4 +25,4 @@ An empty document must meet the following conditions:
 
 ## More Examples
 
-- [Rich Edit for Blazor - How to export a document to the HTML](https://github.com/DevExpress-Examples/blazor-dxrichedit-export-to-html)
+- [Blazor Rich Text Editor - How to export a document to a file (HTML format)](https://github.com/DevExpress-Examples/blazor-dxrichedit-export-to-html)
